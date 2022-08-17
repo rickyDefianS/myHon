@@ -1,24 +1,19 @@
-import logo from './myHon-bg.jpg';
 import './App.css';
 import 'bulma/css/bulma.min.css'
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './component/Navbar';
+import {Home, Favorite} from './pages';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="" element={<Home />}/>
+        <Route path="favorite" element={<Favorite />}/>
+      </Routes>
     </div>
   );
 }
