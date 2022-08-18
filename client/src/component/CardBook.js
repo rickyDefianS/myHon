@@ -2,8 +2,8 @@ import React from "react";
 import Rater from "react-rater";
 import "react-rater/lib/react-rater.css";
 import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { postFavoriteBooks } from "../store/actions/actionBook";
 
 export default function CardBook({
@@ -14,13 +14,24 @@ export default function CardBook({
   currentPage,
 }) {
   const dispatch = useDispatch();
-  const MySwal = withReactContent(Swal);
+
+  const toastAlert = () => {
+    toast.success("Success save your hon", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      theme: "colored",
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   async function saveBook() {
-    dispatch(postFavoriteBooks({ title, imgUrl, author, rating }))
-      .then(() => {
-        MySwal.fire("Favorit Hon", "Success save your favorit Hon", "success");
-      })
+    dispatch(postFavoriteBooks({ title, imgUrl, author, rating })).then(() => {
+      toastAlert();
+    });
   }
 
   return (
@@ -61,6 +72,18 @@ export default function CardBook({
             )}
           </div>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          theme="colored"
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </>
   );

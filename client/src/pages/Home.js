@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     if (query == "") {
-      dispatch(getBooks("japan")).then(() => setIsLoading(false));
+      dispatch(getBooks("rick riordan")).then(() => setIsLoading(false));
     } else {
       dispatch(getBooks(query)).then(() => setIsLoading(false));
     }
