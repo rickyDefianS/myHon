@@ -1,57 +1,27 @@
 import React from "react";
-import logo from '../logo-myHon.png';
+import { Link } from "react-router-dom";
+import logo from "../myhon.png";
 
 export default function Navbar() {
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
-            <img
-              src={logo}
-              width={112}
-              height={28}
-            />
-          </a>
-          <a
-            role="button"
-            className="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </a>
-        </div>
-        <div id="navbarBasicExample" className="navbar-menu">
-          <div className="navbar-start">
-            <a className="navbar-item">Home</a>
-            <a className="navbar-item">Documentation</a>
-            <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">More</a>
-              <div className="navbar-dropdown">
-                <a className="navbar-item">About</a>
-                <a className="navbar-item">Jobs</a>
-                <a className="navbar-item">Contact</a>
-                <hr className="navbar-divider" />
-                <a className="navbar-item">Report an issue</a>
-              </div>
-            </div>
-          </div>
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a className="button is-light">Log in</a>
-              </div>
-            </div>
+      <nav className="bg-white px-2 sm:px-4 py-4 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <div className="container flex flex-wrap justify-between items-center mx-auto">
+          <Link to="/" className="flex items-center">
+            <img src={logo} className="mr-3 h-10 sm:h-14" alt="my:hon Logo" />
+          </Link>
+          <div className="flex md:order-2">
+            <Link to="/favorite">
+              <button
+                type="button"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Favorite Hon
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
     </>
   );
-};
+}
