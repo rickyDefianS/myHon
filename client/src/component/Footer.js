@@ -63,7 +63,7 @@ export default function Footer() {
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div className="text-center">
             <div className="flex justify-center mb-4">
-            <img src={logo} className="h-6 sm:h-9" alt="my:hon Logo" />
+              <img src={logo} className="h-6 sm:h-9" alt="my:hon Logo" />
             </div>
             <span className="block text-sm text-center text-gray-500 dark:text-gray-400 cursor-default">
               © 2022 my:hon. All Rights Reserved. Built with{" "}
